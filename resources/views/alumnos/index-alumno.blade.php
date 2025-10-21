@@ -18,20 +18,16 @@
     <table border="1">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Nombre</th>
-                <th>correo</th>
-                <!-- <th>Fecha Nacimiento</th>
-                <th>Sexo</th>
-                <th>Carrera</th> -->
+                <th>Correo</th>
+                <th>Carrera</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($alumnos as $alumno)
             <tr>
-
-                <td>{{ $alumno->id }}</td>
                 <td>{{ $alumno->codigo }}</td>
                 <td>
                     <a href="{{ route('alumno.show', $alumno->id) }}">
@@ -39,7 +35,9 @@
                     </a>
                 </td>
                 <td>{{ $alumno->correo }}</td>
+                <td>{{ $alumno->carrera }}</td>
                 <td>
+
                     <a href="{{ route('alumno.edit', $alumno->id) }}">Editar</a>
                     <form action="{{ route('alumno.destroy', $alumno->id) }}" method="POST">
                         @csrf
@@ -47,7 +45,6 @@
                         <button type="submit">Eliminar</button>
                     </form>
                 </td>
-
             </tr>
             @endforeach
         </tbody>

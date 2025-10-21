@@ -15,7 +15,7 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         // Genera un codigo de 8 dígitos unico.
-        $codigo = $this->faker->unique()->randomNumber(8, true);
+        $codigo = $this->faker->unique()->numerify('########');
         
         // Define las opciones de sexo para que elija aleatoriamente.
         $sexo = $this->faker->randomElement(['M', 'F']);
