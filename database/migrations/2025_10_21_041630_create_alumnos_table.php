@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id();                            // id autoincremental
+            $table->string('codigo');                // código del alumno
+            $table->string('nombre');                // nombre completo
+            $table->string('correo')->unique();      // correo único
+            $table->date('fecha_nacimiento');        // fecha de nacimiento
+            $table->enum('sexo', ['M', 'F']);        // sexo: M o F
+            $table->string('carrera');               // carrera del alumno
+            $table->timestamps();                    // created_at y updated_at
         });
     }
 
