@@ -41,6 +41,11 @@
                 <td>{{ $alumno->correo }}</td>
                 <td>
                     <a href="{{ route('alumno.edit', $alumno->id) }}">Editar</a>
+                    <form action="{{ route('alumno.destroy', $alumno->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Eliminar</button>
+                    </form>
                 </td>
 
             </tr>
