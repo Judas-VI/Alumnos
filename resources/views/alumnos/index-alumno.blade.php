@@ -22,7 +22,7 @@
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>correo</th>
-               <!-- <th>Fecha Nacimiento</th>
+                <!-- <th>Fecha Nacimiento</th>
                 <th>Sexo</th>
                 <th>Carrera</th> -->
             </tr>
@@ -39,7 +39,9 @@
                     </a>
                 </td>
                 <td>{{ $alumno->correo }}</td>
-                <td>---</td>
+                <td>
+                    <a href="{{ route('alumno.edit', $alumno->id) }}">Editar</a>
+                </td>
 
             </tr>
             @endforeach
