@@ -29,6 +29,14 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'codigo'            => 'required|string|max:255|unique:alumnos,codigo',
+            'nombre'            => 'required|string|max:255',
+            'correo'            => 'required|email|max:255|unique:alumnos,correo',
+            'fecha_nacimiento'  => 'required|date',
+            'sexo'              => 'required|in:M,F',
+            'carrera'           => 'required|string|max:255',
+        ]);
         $alumno = new Alumno();
         $alumno->codigo = $request->codigo;
         $alumno->nombre = $request->nombre;
