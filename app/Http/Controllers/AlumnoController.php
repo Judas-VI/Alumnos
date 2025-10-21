@@ -21,7 +21,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alumnos.create-alumno');
     }
 
     /**
@@ -29,7 +29,15 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $alumno= new Alumno();
+        $alumno->codigo = $request->codigo;
+        $alumno->nombre = $request->nombre;
+        $alumno->correo = $request->correo;
+        $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+        $alumno->sexo = $request->sexo;
+        $alumno->carrera = $request->carrera;
+        $alumno->save();
+        return redirect()->route('alumno.index');
     }
 
     /**
