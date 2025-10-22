@@ -1,7 +1,7 @@
- <div>
+<div>
     <h3>Aqui se muestran los errores (con componente)</h3>
     @if ($errors->any())
-        <div style="color: red; font-size: 0.9em;">
+        <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
